@@ -195,7 +195,6 @@ details[open] summary::before {
     transform: scale(1.1);
 }
 
-/* Responsive */
 @media (max-width: 768px) {
     .menu-principal {
         display: none;
@@ -205,17 +204,16 @@ details[open] summary::before {
         display: block;
     }
     
-    /* AJUSTES ESPECÍFICOS PARA MÓVIL */
     details {
         margin-right: 0;
     }
     
     .menu {
-        /* En móvil, el menú ocupa todo el ancho */
+        
         left: 0;
         right: 0;
         padding: 15px 0;
-         transform: translateX(150%);
+        transform: translateX(150%);
         display: block;
             background: linear-gradient( #000049, rgb(47, 13, 133)); 
     }
@@ -236,18 +234,6 @@ details[open] summary::before {
         font-size: 16px;
     }
     
-    .hero h1 {
-        font-size: 32px;
-    }
-    
-    .hero p {
-        font-size: 18px;
-    }
-    
-    .boton {
-        padding: 12px 28px;
-        font-size: 16px;
-    }
     
     .footer {
         flex-direction: column;
