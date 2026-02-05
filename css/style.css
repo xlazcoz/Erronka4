@@ -112,7 +112,7 @@ details[open] summary::before {
 }
 
 .logo img {
-    height: 60px;
+    height: 200px;
     transition: transform 0.3s ease;
 }
 
