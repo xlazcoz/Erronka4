@@ -56,6 +56,7 @@ function actualizarTotales() {
             <div>Unitateak guztira: ${cantidad}</div>
             <div>Prezio totala: ${precio.toFixed(2)}€</div>
             <button id="reiniciar">Saskia hustu</button>
+            <button id="comprar"> erosi</button>
         `;
 
         const btnReiniciar = document.getElementById("reiniciar");
@@ -66,8 +67,18 @@ function actualizarTotales() {
                 actualizarTotales();
             });
         }
+        const btnComprar = document.getElementById("comprar");
+btnComprar.onclick = function(){
+alert("erosketa eginda")
+localStorage.removeItem("saskia");
+                crearTarjetasProductosCarrito();
+                actualizarTotales();
+}
     }
 }
+
+
+
 
 document.addEventListener('DOMContentLoaded', () => {
     crearTarjetasProductosCarrito();

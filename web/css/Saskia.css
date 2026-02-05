@@ -159,6 +159,15 @@ margin-top: 5vh;
 }
 
 
+button{
+        background: linear-gradient( #000049, rgb(47, 13, 133)); 
+        color: white;
+        padding: 1vh;
+        margin: 2vh;
+        justify-content: right;
+}
+
+
 
 .footer {
     background: linear-gradient( #000049, rgb(47, 13, 133)); 
@@ -219,7 +228,6 @@ margin-top: 5vh;
     background-color: rgb(255, 234, 0);
     padding: 0px  1.2vh;
     border-radius: 100%;
-    font-size: large;
     display: flex;
     position: absolute;
     top: 50%;
