@@ -154,9 +154,8 @@ margin-top: 5vh;
 #cart-container img{
     width: 10vh;
     display: flex;
-    position: relative;
     justify-content: center;
-    
+    margin: 0 auto;
 }
 
 
