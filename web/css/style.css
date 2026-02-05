@@ -112,7 +112,7 @@ details[open] summary::before {
 }
 
 .logo img {
-    height: 200px;
+    height: 70px;
     transition: transform 0.3s ease;
 }
 
@@ -206,6 +206,7 @@ details[open] summary::before {
     top: 50%;
     right: -0.6%;
     color: #000049;
+    max-width: 4vh;
 
 }
 .logos a:hover {
