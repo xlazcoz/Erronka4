@@ -191,6 +191,23 @@ details[open] summary::before {
     border: 1px solid #555555;
 }
 
+.cesta {
+    width: 5vh;
+    display: flex;
+}
+
+#cuenta-carrito{
+    background-color: rgb(255, 234, 0);
+    padding: 0px  1.2vh;
+    border-radius: 100%;
+    font-size: large;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    right: -0.6%;
+    color: #000049;
+
+}
 .logos a:hover {
     transform: scale(1.1);
 }
