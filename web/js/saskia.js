@@ -2,7 +2,8 @@ const contenedorTarjetas = document.getElementById("cart-container");
 
 function crearTarjetasProductosCarrito() {
     contenedorTarjetas.innerHTML = "";
-    const productos = JSON.parse(localStorage.getItem("saskia")) || [];
+
+    const productos = (typeof carrito !== 'undefined' && carrito.length > 0) ? carrito : JSON.parse(localStorage.getItem("saskia")) || [];
 
     if (productos && productos.length > 0) {
         productos.forEach((producto) => {
@@ -39,7 +40,8 @@ function crearTarjetasProductosCarrito() {
 }
 
 function actualizarTotales() {
-    const productos = JSON.parse(localStorage.getItem("saskia")) || [];
+
+    const productos = (typeof carrito !== 'undefined' && carrito.length > 0) ? carrito : JSON.parse(localStorage.getItem("saskia")) || [];
     let cantidad = 0;
     let precio = 0;
 
@@ -62,23 +64,25 @@ function actualizarTotales() {
         const btnReiniciar = document.getElementById("reiniciar");
         if (btnReiniciar) {
             btnReiniciar.addEventListener("click", () => {
+                carrito = [];
                 localStorage.removeItem("saskia");
                 crearTarjetasProductosCarrito();
                 actualizarTotales();
             });
         }
         const btnComprar = document.getElementById("comprar");
-btnComprar.onclick = function(){
-alert("erosketa eginda")
-localStorage.removeItem("saskia");
-                crearTarjetasProductosCarrito();
-                actualizarTotales();
-}
+        btnComprar.onclick = function(){
+            alert("erosketa eginda")
+            carrito = [];
+            localStorage.removeItem("saskia");
+            crearTarjetasProductosCarrito();
+            actualizarTotales();
+        }
     }
 }
 
-
-
+function actualizarNumeroCarrito() {
+}
 
 document.addEventListener('DOMContentLoaded', () => {
     crearTarjetasProductosCarrito();
