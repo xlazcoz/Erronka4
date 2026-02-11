@@ -164,7 +164,6 @@ details[open] summary::before {
     text-align: right;
 }
 
-/* Botones de cantidad en carrito */
 #cart-container > div > div {
     display: flex;
     align-items: center;
@@ -345,7 +344,7 @@ details[open] summary::before {
         left: 0;
         right: 0;
         padding: 15px 0;
-        transform: translateX(150%);
+        transform: translateX(0%);
         display: block;
             background: linear-gradient( #000049, rgb(47, 13, 133)); 
     }
