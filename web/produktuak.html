@@ -2,12 +2,13 @@
 <html lang="eu">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="" />
+    <meta name="description" content="" />
     <link rel="stylesheet" href="css/style.css" />
-    <link rel="stylesheet" href="css/Saskia.css" />
+    <title>Indiusurbil</title>
     <script src="js/index.js"></script>
-    <title>Saskia</title>
 </head>
 
 <body>
@@ -15,33 +16,32 @@
         <nav>
             <div class="logo">
                 <a href="index.html">
-                    <img src="img/" alt="Indiusurbil logoa" class="logo" />
+                    <img src="img/logo.png" alt="Indiusurbil logoa" class="logo" />
                 </a>
             </div>
             <details>
                 <summary></summary>
                 <ul class="menu">
                     <li><a href="index.html">Orrialde nagusia</a></li>
-                    <li><a href="produktuak.html">Produktuak</a></li>
+                    <li><a href="#">Produktuak</a></li>
                     <li><a href="#">Estadistikak</a></li>
                     <li><a href="#">Login</a></li>
                 </ul>
             </details>
-            <div class="carrito">
-                <a href="saskia.html"><img src="img/cesta.png" alt="cesta" /> <span id="cuenta-carrito">0</span></a>
+            <a href="saskia.html"><img class="cesta" src="img/cesta.png" alt="cesta" /> <span id="cuenta-carrito">0</span></a>
             </div>
         </nav>
     </header>
     <script src="js/cartService.js"></script>
 
     <main>
-        
+        <div id="products-container" class="products-grid"></div>
     </main>
-
+    <script src="js/filtroa.js"></script>
     <footer class="footer">
         <div class="logo">
             <a href="index.html">
-                <img src="img/logo negro.png" alt="Indiusurbil logo" />
+                <img src="img/logo.png" alt="Indiusurbil logo" />
             </a>
         </div>
         <div class="oharlegalak">
@@ -73,8 +73,6 @@
             </ul>
         </div>
     </footer>
-
-    <script src="js/saskia.js"></script>
 </body>
 
 </html>
