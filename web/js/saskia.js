@@ -1,47 +1,51 @@
 const contenedorTarjetas = document.getElementById("cart-container");
 
+document.addEventListener("DOMContentLoaded", () => {
+    crearTarjetasProductosCarrito();
+    actualizarTotales();
+    actualizarNumeroCarrito(); 
+});
+
 function crearTarjetasProductosCarrito() {
     contenedorTarjetas.innerHTML = "";
 
-    const productos = (typeof carrito !== 'undefined' && carrito.length > 0) ? carrito : JSON.parse(localStorage.getItem("saskia")) || [];
+    const productos = JSON.parse(localStorage.getItem("saskia")) || [];
 
     if (productos && productos.length > 0) {
         productos.forEach((producto) => {
-            const nuevaBicicleta = document.createElement("div");
-            nuevaBicicleta.innerHTML = `
+            const nuevoproducto = document.createElement("div");
+            nuevoproducto.classList.add("tarjeta-producto");
+            nuevoproducto.innerHTML = `
                 <img src="${producto.image}" width="50">
                 <span>${producto.title}</span>
                 <span>${producto.price}€</span>
                 <div>
-                    <button>-</button>
+                    <button class="btn-menos">-</button>
                     <span class="cantidad">${producto.cantidad}</span>
-                    <button>+</button>
+                    <button class="btn-mas">+</button>
                 </div>
             `;
-            contenedorTarjetas.appendChild(nuevaBicicleta);
+            contenedorTarjetas.appendChild(nuevoproducto);
 
-            nuevaBicicleta.getElementsByTagName("button")[0].addEventListener("click", (e) => {
-                restarAlCarrito(producto);
+            nuevoproducto.getElementsByClassName("btn-menos")[0].addEventListener("click", (e) => {
+                restarAlCarrito(producto); 
                 crearTarjetasProductosCarrito();
                 actualizarTotales();
             });
 
-            nuevaBicicleta.getElementsByTagName("button")[1].addEventListener("click", (e) => {
-                agregarAlCarrito(producto);
+            nuevoproducto.getElementsByClassName("btn-mas")[0].addEventListener("click", (e) => {
+                agregarAlCarrito(producto); 
                 crearTarjetasProductosCarrito();
                 actualizarTotales();
             });
         });
     } else {
-        contenedorTarjetas.innerHTML = "<p>Saskia hutsik</p>";
+        contenedorTarjetas.innerHTML = "<p>Saskia hutsik dago (El carrito está vacío)</p>";
     }
-    actualizarTotales();
-    actualizarNumeroCarrito();
 }
 
 function actualizarTotales() {
-
-    const productos = (typeof carrito !== 'undefined' && carrito.length > 0) ? carrito : JSON.parse(localStorage.getItem("saskia")) || [];
+    const productos = JSON.parse(localStorage.getItem("saskia")) || [];
     let cantidad = 0;
     let precio = 0;
 
@@ -55,35 +59,35 @@ function actualizarTotales() {
     const totalesContainer = document.getElementById("totales");
     if (totalesContainer) {
         totalesContainer.innerHTML = `
-            <div>Unitateak guztira: ${cantidad}</div>
-            <div>Prezio totala: ${precio.toFixed(2)}€</div>
+            <div class="totales-info">
+                <div>Unitateak guztira: ${cantidad}</div>
+                <div>Prezio totala: ${precio.toFixed(2)}€</div>
+            </div>
             <button id="reiniciar">Saskia hustu</button>
-            <button id="comprar"> erosi</button>
+            <button id="comprar">Erosi</button>
         `;
 
         const btnReiniciar = document.getElementById("reiniciar");
         if (btnReiniciar) {
             btnReiniciar.addEventListener("click", () => {
-                carrito = [];
                 localStorage.removeItem("saskia");
                 crearTarjetasProductosCarrito();
                 actualizarTotales();
+                actualizarNumeroCarrito(); 
             });
         }
+
+        // --- BOTÓN COMPRAR ---
         const btnComprar = document.getElementById("comprar");
-        btnComprar.onclick = function(){
-            alert("erosketa eginda")
-            carrito = [];
-            localStorage.removeItem("saskia");
-            crearTarjetasProductosCarrito();
-            actualizarTotales();
+        if (btnComprar) {
+            btnComprar.onclick = function(){
+                alert("Erosketa eginda! (Compra realizada)");
+                localStorage.removeItem("saskia");
+                crearTarjetasProductosCarrito();
+                actualizarTotales();
+                actualizarNumeroCarrito(); 
+            }
         }
     }
 }
 
-function actualizarNumeroCarrito() {
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    crearTarjetasProductosCarrito();
-});

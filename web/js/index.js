@@ -1,7 +1,5 @@
 const url = "https://fakestoreapi.com/products";
-
 let todosProductos = [];
-let carrito = [];
 
 async function cargarProductos() {
     try {
@@ -17,38 +15,51 @@ async function cargarProductos() {
                     <img src="${producto.image}" width="100"><br>
                     <span>${producto.title}</span><br>
                     <span>${producto.price}€</span><br>
-                    <button onclick="agregarAlCarrito(${producto.id})">Saskira gehitu</button>
+                    <button onclick="procesarCompra(${producto.id})">Saskira gehitu</button>
                 </div>
             `;
         });
         
-        document.getElementById('products-container').innerHTML = productosHTML;
+        const container = document.getElementById('products-container');
+        if (container) {
+            container.innerHTML = productosHTML;
+        }
         
     } catch (error) {
         console.error("Error cargando productos:", error);
     }
 }
 
-function agregarAlCarrito(idProducto) {
-    const producto = todosProductos.find(p => p.id === idProducto);
+function procesarCompra(idProducto) {
+    const productoEncontrado = todosProductos.find(prod => prod.id === idProducto);
     
-    if (producto) {
-        const itemExistente = carrito.find(item => item.id === idProducto);
-        
-        if (itemExistente) {
-            itemExistente.cantidad += 1;
-        } else {
-            carrito.push({
-                id: producto.id,
-                title: producto.title,
-                price: producto.price,
-                cantidad: 1
-            });
-        }
-        localStorage.setItem("saskia", JSON.stringify(carrito));
-        
-        alert(`${producto.title} saskira gehitu da!`);
+    if (productoEncontrado) {
+        agregarAlCarrito(productoEncontrado);
+        mostrarNotificacion(`${productoEncontrado.title} saskira gehitu da!`);
+    } else {
+        console.error("Producto no encontrado");
     }
 }
 
-cargarProductos();
+function mostrarNotificacion(mensaje) {
+    const notificacion = document.createElement('div');
+    notificacion.textContent = mensaje;
+    notificacion.classList.add('notificacion');
+    document.body.appendChild(notificacion);
+
+    setTimeout(() => {
+        notificacion.classList.add('mostrar');
+    }, 10);
+
+    setTimeout(() => {
+        notificacion.classList.remove('mostrar'); 
+        
+        setTimeout(() => {
+            notificacion.remove();
+        }, 500);
+    }, 2000);
+}
+
+if(document.getElementById('products-container')) {
+    cargarProductos();
+}

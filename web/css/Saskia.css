@@ -112,7 +112,7 @@ details[open] summary::before {
 }
 
 .logo img {
-    height: 60px;
+    height: 30px;
     transition: transform 0.3s ease;
 }
 
@@ -135,36 +135,122 @@ details[open] summary::before {
 
 
 
+#cart-container > div {
+    display: grid;
+    grid-template-columns: 60px 1fr 100px auto;
+    gap: 20px;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
 
-#totales{
-    text-align: center;
-    margin-top: 5vh;
-}
-main, h1{
-text-align: center;
-margin-top: 5vh;
+#cart-container img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain;
 }
 
-#cart-container{
-    max-width: 50vh;
-    margin: 0 auto;
-    padding: 20px;
-    
+#cart-container span:first-of-type {
+    font-weight: 600;
+    color: #333;
 }
-#cart-container img{
-    width: 10vh;
+
+#cart-container span:last-of-type {
+    color: #2c3e50;
+    font-weight: 700;
+    text-align: right;
+}
+
+/* Botones de cantidad en carrito */
+#cart-container > div > div {
     display: flex;
+    align-items: center;
+    gap: 10px;
     justify-content: center;
-    margin: 0 auto;
+}
+
+#cart-container > div > div button {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #ddd;
+    background: white;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#cart-container > div > div button:hover {
+    background-color: #f5f5f5;
+}
+
+#cart-container > div > div .cantidad {
+    min-width: 30px;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Totales */
+#totales {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 25px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
 }
 
 
-button{
-        background: linear-gradient( #000049, rgb(47, 13, 133)); 
-        color: white;
-        padding: 1vh;
-        margin: 2vh;
-        justify-content: right;
+
+#totales div {
+    font-size: 17px;
+    margin: 12px 0;
+    color: #333;
+}
+
+#totales div:first-child {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+#totales div:nth-child(2) {
+    font-size: 22px;
+    color: #2a2929;
+    font-weight: 700;
+}
+
+#totales button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: 600;
+    margin-right: 15px;
+    margin-top: 10px;
+    transition: all 0.3s;
+}
+
+#reiniciar {
+    background-color: #c41c1c;
+    color: white;
+}
+
+#reiniciar:hover {
+    background-color: #650000;
+}
+
+#comprar {
+    background-color: #1a0090;
+    color: white;
+}
+
+#comprar:hover {
+    background-color: #0b0038;
 }
 
 
@@ -225,15 +311,17 @@ button{
 }
 
 #cuenta-carrito{
-    background-color: rgb(255, 234, 0);
-    padding: 0px  1.2vh;
+    background-color: rgb(253, 253, 253);
+    padding: 1px  1vh;
     border-radius: 100%;
+    font-size: large;
     display: flex;
     position: absolute;
     top: 50%;
     right: -0.6%;
-    color: #000049;
-
+    color: #000000;
+    font-size: 13px;
+    max-width: 4vh;
 }
 .logos a:hover {
     transform: scale(1.1);
