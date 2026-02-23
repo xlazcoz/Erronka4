@@ -44,21 +44,19 @@ function getNuevoProductoParaMemoria(producto) {
     return nuevoProducto;
 }
 
-// --- FUNCIÓN PARA ACTUALIZAR EL NÚMERO ROJO ---
+
 function actualizarNumeroCarrito() {
     const cuentaElement = document.getElementById("cuenta-carrito");
     
-    // Solo intentamos actualizar si el elemento existe en esta página
+
     if (cuentaElement) {
         const memoria = JSON.parse(localStorage.getItem(keyLocalstorage)) || [];
         
-        // Sumamos todas las cantidades de los productos
+
         const cuenta = memoria.reduce((acumulado, productoActual) => acumulado + productoActual.cantidad, 0);
         
         cuentaElement.innerText = cuenta;
     }
 }
 
-// ¡¡ESTA ES LA LÍNEA MÁGICA!!
-// Ejecutamos la función nada más cargar el archivo para que ponga el número correcto
 actualizarNumeroCarrito();

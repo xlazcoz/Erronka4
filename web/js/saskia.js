@@ -77,7 +77,6 @@ function actualizarTotales() {
             });
         }
 
-        // --- BOTÓN COMPRAR ---
         const btnComprar = document.getElementById("comprar");
         if (btnComprar) {
             btnComprar.onclick = function(){
