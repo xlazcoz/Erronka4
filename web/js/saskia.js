@@ -15,32 +15,37 @@ function crearTarjetasProductosCarrito() {
         productos.forEach((producto) => {
             const nuevoproducto = document.createElement("div");
             nuevoproducto.classList.add("tarjeta-producto");
+            
+            // Hemos ordenado el HTML para que encaje con el nuevo diseño limpio
             nuevoproducto.innerHTML = `
-                <img src="${producto.image}" width="50">
-                <span>${producto.title}</span>
-                <span>${producto.price}€</span>
-                <div>
-                    <button class="btn-menos">-</button>
+                <img src="${producto.image}" alt="${producto.title}">
+                <div class="producto-info">
+                    <span class="producto-titulo">${producto.title}</span>
+                    <span class="producto-precio">${producto.price.toFixed(2)} €</span>
+                </div>
+                <div class="controles-cantidad">
+                    <button class="btn-cantidad btn-menos">-</button>
                     <span class="cantidad">${producto.cantidad}</span>
-                    <button class="btn-mas">+</button>
+                    <button class="btn-cantidad btn-mas">+</button>
                 </div>
             `;
             contenedorTarjetas.appendChild(nuevoproducto);
 
-            nuevoproducto.getElementsByClassName("btn-menos")[0].addEventListener("click", (e) => {
+            nuevoproducto.querySelector(".btn-menos").addEventListener("click", () => {
                 restarAlCarrito(producto); 
                 crearTarjetasProductosCarrito();
                 actualizarTotales();
             });
 
-            nuevoproducto.getElementsByClassName("btn-mas")[0].addEventListener("click", (e) => {
+            nuevoproducto.querySelector(".btn-mas").addEventListener("click", () => {
                 agregarAlCarrito(producto); 
                 crearTarjetasProductosCarrito();
                 actualizarTotales();
             });
         });
     } else {
-        contenedorTarjetas.innerHTML = "<p>Saskia hutsik dago (El carrito está vacío)</p>";
+        // Mensaje elegante si el carrito está vacío
+        contenedorTarjetas.innerHTML = "<p style='text-align:center; color:#777; padding: 40px 0;'>Zure saskia hutsik dago.</p>";
     }
 }
 
@@ -58,35 +63,41 @@ function actualizarTotales() {
 
     const totalesContainer = document.getElementById("totales");
     if (totalesContainer) {
-        totalesContainer.innerHTML = `
-            <div class="totales-info">
-                <div>Unitateak guztira: ${cantidad}</div>
-                <div>Prezio totala: ${precio.toFixed(2)}€</div>
-            </div>
-            <button id="reiniciar">Saskia hustu</button>
-            <button id="comprar">Erosi</button>
-        `;
+        if (cantidad > 0) {
+            // Estructura renovada para los totales y botones finales
+            totalesContainer.innerHTML = `
+                <div class="totales-info">
+                    <div>Unitateak: ${cantidad}</div>
+                    <div>Guztira: ${precio.toFixed(2)} €</div>
+                </div>
+                <div class="botones-cart">
+                    <button id="reiniciar" class="btn-vaciar">Saskia Hustu</button>
+                    <button id="comprar" class="btn-comprar">Erosi</button>
+                </div>
+            `;
 
-        const btnReiniciar = document.getElementById("reiniciar");
-        if (btnReiniciar) {
-            btnReiniciar.addEventListener("click", () => {
-                localStorage.removeItem("saskia");
-                crearTarjetasProductosCarrito();
-                actualizarTotales();
-                actualizarNumeroCarrito(); 
-            });
-        }
-
-        const btnComprar = document.getElementById("comprar");
-        if (btnComprar) {
-            btnComprar.onclick = function(){
-                alert("Erosketa eginda! (Compra realizada)");
-                localStorage.removeItem("saskia");
-                crearTarjetasProductosCarrito();
-                actualizarTotales();
-                actualizarNumeroCarrito(); 
+            const btnReiniciar = document.getElementById("reiniciar");
+            if (btnReiniciar) {
+                btnReiniciar.addEventListener("click", () => {
+                    localStorage.removeItem("saskia");
+                    crearTarjetasProductosCarrito();
+                    actualizarTotales();
+                    actualizarNumeroCarrito(); 
+                });
             }
+
+            const btnComprar = document.getElementById("comprar");
+            if (btnComprar) {
+                btnComprar.onclick = function(){
+                    alert("Erosketa eginda! Eskerrik asko zure konfiantzagatik.");
+                    localStorage.removeItem("saskia");
+                    crearTarjetasProductosCarrito();
+                    actualizarTotales();
+                    actualizarNumeroCarrito(); 
+                };
+            }
+        } else {
+            totalesContainer.innerHTML = ""; // Ocultar totales si está vacío
         }
     }
 }
-

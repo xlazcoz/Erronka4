@@ -36,7 +36,6 @@ header {
     position: absolute;
 }
 
-
 details {
     margin-left: auto; 
     margin-right: 0;
@@ -67,7 +66,6 @@ details[open] summary::before {
     content: '\2715';
 }
 
-
 .menu {
     position: absolute;
     left: 50%;
@@ -80,7 +78,6 @@ details[open] summary::before {
     width: max-content; 
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     display: flex;
-    
 }
 
 .menu ul {
@@ -132,40 +129,49 @@ details[open] summary::before {
     height: 32px;
 }
 
-
-
 main {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 20px;
-    background: #f8f9fa;
+    padding: 40px 20px; 
 }
+
 
 
 #products-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 40px; 
     margin: 30px 0;
 }
 
-#products-container  div {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+#products-container > div {
+    background: transparent; 
+    padding: 0; 
+    border-radius: 0; 
+    box-shadow: none; 
     display: flex;
     flex-direction: column;
+    align-items: center;
+    text-align: center;
     height: 100%; 
+    transition: transform 0.4s ease; 
 }
+
+#products-container > div:hover {
+    transform: translateY(-5px); 
+}
+
 
 #products-container img {
     width: 100%;
-    height: 160px;
+    height: 140px; 
     object-fit: contain;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    transition: filter 0.4s ease;
 }
+
+
 
 #products-container span {
     display: block;
@@ -173,22 +179,41 @@ main {
 }
 
 
+#products-container span:nth-of-type(1) {
+    font-size: 0.85rem;
+    color: #111;
+    font-weight: 400;
+}
+
+
+#products-container span:nth-of-type(2) {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 15px;
+}
+
 
 #products-container button {
-    background: linear-gradient( #000049, rgb(47, 13, 133)); 
-    color: white;
+    background: none;
+    color: #111;
     border: none;
-    padding: 12px;
-    border-radius: 6px;
+    border-bottom: 1px solid #111; 
+    padding: 0 0 4px 0;
+    border-radius: 0;
     cursor: pointer;
-    width: 100%;
-    font-size: 15px;
-    font-weight: 600;
+    width: auto; 
+    font-size: 0.75rem;
+    font-weight: normal;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
     margin-top: auto;
+    transition: color 0.3s, border-color 0.3s;
 }
 
 #products-container button:hover {
-    background: linear-gradient( #010166, rgb(29, 0, 176)); 
+    background: none;
+    color: #999;
+    border-color: #999;
 }
 
 
@@ -197,15 +222,16 @@ main {
     position: fixed;
     top: 20px;
     right: 20px;
-    background-color: #000049; 
+    background-color: #111; 
     color: white;
-    padding: 15px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    padding: 15px 30px;
+    border-radius: 0; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     z-index: 1000;
-    font-family: 'Segoe UI', sans-serif;
-    
-
+    font-family: inherit;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
     opacity: 0;
     transition: opacity 0.5s ease;
 }
@@ -216,12 +242,11 @@ main {
 
 @media (max-width: 768px) {
     #products-container {
-        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        /* En móvil, los hacemos un pelín más pequeños para que entren bien 2 columnas */
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 20px;
     }
-    
 }
-
-
 
 .footer {
     background: linear-gradient( #000049, rgb(47, 13, 133)); 
@@ -309,13 +334,12 @@ main {
     }
     
     .menu {
-        
         left: 0;
         right: 0;
         padding: 15px 0;
         transform: translateX(0%);
         display: block;
-            background: linear-gradient( #000049, rgb(47, 13, 133)); 
+        background: linear-gradient( #000049, rgb(47, 13, 133)); 
     }
     
     .menu ul {
@@ -333,7 +357,6 @@ main {
         padding: 15px;
         font-size: 16px;
     }
-    
     
     .footer {
         flex-direction: column;

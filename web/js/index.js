@@ -35,7 +35,7 @@ function procesarCompra(idProducto) {
     
     if (productoEncontrado) {
         agregarAlCarrito(productoEncontrado);
-        mostrarNotificacion(`${productoEncontrado.title} saskira gehitu da!`);
+        mostrarNotificacion(`saskira gehitu da!`);
     } else {
         console.error("Producto no encontrado");
     }

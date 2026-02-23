@@ -1,0 +1,195 @@
+
+.seccion-portada {
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: #fcfcfc;
+    border-bottom: 1px solid #eaeaea;
+}
+
+.texto-titulo {
+    font-size: 4rem;
+    font-weight: 300;
+    letter-spacing: -1.5px;
+    margin-bottom: 40px;
+    color: #111;
+}
+
+.boton-enlace {
+    display: inline-block;
+    border: 1px solid #111;
+    background: transparent;
+    color: #111;
+    padding: 16px 45px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    text-decoration: none;
+    transition: all 0.4s ease;
+}
+
+.boton-enlace:hover {
+    background: #111;
+    color: #fff;
+}
+
+.seccion-texto {
+    padding: 120px 20px;
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.texto-filosofia {
+    font-size: 1.25rem;
+    font-weight: 300;
+    color: #555;
+    line-height: 2;
+    letter-spacing: 0.5px;
+}
+
+.seccion-destacados {
+    padding: 0 20px 120px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.titulo-destacados {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 400;
+    margin-bottom: 60px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    color: #888;
+}
+
+.cuadricula-productos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 60px;
+}
+
+.tarjeta-producto {
+    text-align: center;
+    transition: transform 0.4s ease;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-5px);
+}
+
+.imagen-producto {
+    max-width: 100%;
+    height: 300px;
+    object-fit: contain;
+    margin-bottom: 30px;
+    transition: filter 0.4s ease;
+}
+
+
+
+.nombre-producto {
+    font-size: 1rem;
+    font-weight: 400;
+    margin-bottom: 12px;
+    color: #111;
+}
+
+.precio-producto {
+    color: #777;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.boton-comprar {
+    background: none;
+    border: none;
+    border-bottom: 1px solid #111;
+    padding-bottom: 4px;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    transition: color 0.3s, border-color 0.3s;
+}
+
+.boton-comprar:hover {
+    color: #999;
+    border-color: #999;
+}
+
+.notificacion {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #111; 
+    color: white;
+    padding: 15px 30px;
+    border-radius: 0; 
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    z-index: 1000;
+    font-family: inherit;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.notificacion.mostrar {
+    opacity: 1;
+}
+
+
+@media (max-width: 768px) {
+
+    .seccion-portada {
+        height: 60vh;
+        padding: 0 20px;
+    }
+
+    .texto-titulo {
+        font-size: 2.5rem; 
+        margin-bottom: 30px;
+    }
+
+    .boton-enlace {
+        padding: 12px 30px;
+        font-size: 0.8rem;
+    }
+
+
+    .seccion-texto {
+        padding: 60px 20px; 
+    }
+
+    .texto-filosofia {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+
+
+    .seccion-destacados {
+        padding: 0 20px 60px;
+    }
+
+    .titulo-destacados {
+        margin-bottom: 40px;
+        font-size: 1.1rem;
+    }
+
+    .cuadricula-productos {
+        grid-template-columns: 1fr; 
+        gap: 40px;
+    }
+
+    .imagen-producto {
+        height: 250px; 
+        margin-bottom: 20px;
+
+    }
+}

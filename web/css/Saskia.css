@@ -1,383 +1,194 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* css/Saskia.css - Estilo Minimalista para el Carrito */
 
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #f8f7f4; 
-    line-height: 1.6;
-    color: #333333; 
-}
-
-header {   
-    background: linear-gradient( #000049, rgb(47, 13, 133)); 
+main {
+    max-width: 900px;
     margin: 0 auto;
-    padding: 15px 30px;
-    position: relative;
+    padding: 60px 20px;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 2000px;
-    margin: auto;
-    position: relative; 
-}
-
-header {
-    border-bottom: 1px solid #d9d9d9; 
-}
-
-.menu-hamburguesa {
-    display: none;
-    position: absolute;
-}
-
-
-details {
-    margin-left: auto; 
-    margin-right: 0;
-    position: static; 
-}
-
-summary {
-    list-style: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 18px;
-    color: #ffffff;
-    border-radius: 4px;
-    transition: all 0.3s ease;  
-    position: relative;
-}
-
-summary::-webkit-details-marker {
-    display: none;
-}
-
-summary::before {
-    content: '\2630';
-    font-size: 24px;
-}
-
-details[open] summary::before {
-    content: '\2715';
-}
-
-
-.menu {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: -30%; 
-    margin-top: 20px;
+h1 {
     text-align: center;
-    border-radius: 8px;
-    padding: 0px;
-    width: max-content; 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    font-size: 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #111;
+}
+
+#cart-container {
     display: flex;
-    
+    flex-direction: column;
+    gap: 0; /* Quitamos el gap porque usaremos bordes inferiores */
+    margin-bottom: 40px;
 }
 
-.menu ul {
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-.menu li {
-    list-style: none;
-}
-
-.menu li a {
-    text-decoration: none;
-    color: #ffffff; 
-    padding: 12px 20px;
-    display: block;
-    border-radius: 4px;
-    transition: all 0.3s ease;
-    font-size: 18px;
-}
-
-.menu li a:hover {
-    background-color: rgba(255, 255, 255, 0.2); 
-    color: #ffffff;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-.logo img {
-    height: 30px;
-    transition: transform 0.3s ease;
-}
-
-.logo img:hover {
-    transform: scale(1.1);
-}
-
-.carrito {
+/* Cada producto en el carrito */
+.tarjeta-producto {
     display: flex;
     align-items: center;
-    gap: 8px;
-    margin-left: 20px;
+    justify-content: space-between;
+    padding: 25px 0;
+    border-bottom: 1px solid #eaeaea;
 }
 
-.carrito img {
-    width: 32px;
-    height: 32px;
-}
-
-
-
-
-#cart-container > div {
-    display: grid;
-    grid-template-columns: 60px 1fr 100px auto;
-    gap: 20px;
-    align-items: center;
-    padding: 15px;
-    background: white;
-    margin-bottom: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-}
-
-#cart-container img {
-    width: 50px;
-    height: 50px;
+.tarjeta-producto img {
+    width: 80px;
+    height: 80px;
     object-fit: contain;
+    filter: grayscale(15%);
 }
 
-#cart-container span:first-of-type {
-    font-weight: 600;
-    color: #333;
-}
-
-#cart-container span:last-of-type {
-    color: #2c3e50;
-    font-weight: 700;
-    text-align: right;
-}
-
-#cart-container > div > div {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    justify-content: center;
-}
-
-#cart-container > div > div button {
-    width: 32px;
-    height: 32px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#cart-container > div > div button:hover {
-    background-color: #f5f5f5;
-}
-
-#cart-container > div > div .cantidad {
-    min-width: 30px;
-    text-align: center;
-    font-weight: 600;
-}
-
-/* Totales */
-#totales {
-    background: white;
-    padding: 25px;
-    border-radius: 10px;
-    margin-top: 25px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.08);
-}
-
-
-
-#totales div {
-    font-size: 17px;
-    margin: 12px 0;
-    color: #333;
-}
-
-#totales div:first-child {
-    font-size: 18px;
-    font-weight: 600;
-}
-
-#totales div:nth-child(2) {
-    font-size: 22px;
-    color: #2a2929;
-    font-weight: 700;
-}
-
-#totales button {
-    padding: 12px 25px;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    font-size: 15px;
-    font-weight: 600;
-    margin-right: 15px;
-    margin-top: 10px;
-    transition: all 0.3s;
-}
-
-#reiniciar {
-    background-color: #c41c1c;
-    color: white;
-}
-
-#reiniciar:hover {
-    background-color: #650000;
-}
-
-#comprar {
-    background-color: #1a0090;
-    color: white;
-}
-
-#comprar:hover {
-    background-color: #0b0038;
-}
-
-
-
-.footer {
-    background: linear-gradient( #000049, rgb(47, 13, 133)); 
-    padding: 40px 30px;
-    border-top: 1px solid #444444;
-    color: #cccccc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 80px;
-}
-
-.oharlegalak {
+.producto-info {
+    flex: 1;
+    margin-left: 30px;
     display: flex;
     flex-direction: column;
     gap: 8px;
 }
 
-.oharlegalak a {
-    color: #ffffff;
-    text-decoration: none;
-    font-size: 14px;
-    transition: color 0.3s ease;
+.producto-titulo {
+    font-size: 0.95rem;
+    color: #111;
+    font-weight: 400;
 }
 
-.oharlegalak a:hover {
-    color: #f0f0f0;
-    text-decoration: underline;
+.producto-precio {
+    font-size: 0.9rem;
+    color: #777;
 }
 
-.logos ul {
-    display: flex;
-    gap: 15px;
-    list-style: none;
-}
-
-.logos img {
-    height: 30px;
-}
-
-.logos a {
+/* Controles de sumar y restar */
+.controles-cantidad {
     display: flex;
     align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
+    gap: 15px;
+    margin-left: 20px;
+}
+
+.btn-cantidad {
+    background: transparent;
+    border: 1px solid #ccc;
+    width: 32px;
+    height: 32px;
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
     transition: all 0.3s ease;
-    border: 1px solid #555555;
+    color: #111;
+    font-size: 1rem;
 }
 
-.cesta {
-    width: 5vh;
+.btn-cantidad:hover {
+    border-color: #111;
+    background: #111;
+    color: #fff;
+}
+
+.cantidad {
+    font-size: 0.95rem;
+    width: 25px;
+    text-align: center;
+    color: #111;
+}
+
+/* Sección de Totales */
+#totales {
+    background: #fcfcfc;
+    padding: 40px;
+    border: 1px solid #eaeaea;
+    text-align: right;
+}
+
+.totales-info {
+    margin-bottom: 30px;
+    font-size: 1rem;
+    color: #555;
     display: flex;
+    flex-direction: column;
+    gap: 15px;
 }
 
-#cuenta-carrito{
-    background-color: rgb(253, 253, 253);
-    padding: 1px  1vh;
-    border-radius: 100%;
-    font-size: large;
+.totales-info div:last-child {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #111;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Botones finales */
+.botones-cart {
     display: flex;
-    position: absolute;
-    top: 50%;
-    right: -0.6%;
-    color: #000000;
-    font-size: 13px;
-    max-width: 4vh;
-}
-.logos a:hover {
-    transform: scale(1.1);
+    justify-content: flex-end;
+    gap: 20px;
 }
 
+.btn-vaciar {
+    background: transparent;
+    border: 1px solid #111;
+    color: #111;
+    padding: 14px 30px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-vaciar:hover {
+    background: #f4f4f4;
+}
+
+.btn-comprar {
+    background: #111;
+    border: 1px solid #111;
+    color: #fff;
+    padding: 14px 40px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+
+.btn-comprar:hover {
+    background: #333;
+    border-color: #333;
+}
+
+/* =========================================
+   DISEÑO RESPONSIVE (MÓVILES)
+   ========================================= */
 @media (max-width: 768px) {
-    .menu-principal {
-        display: none;
+    .tarjeta-producto {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
     }
-    
-    .menu-hamburguesa {
-        display: block;
+
+    .producto-info {
+        margin-left: 0;
     }
-    
-    details {
-        margin-right: 0;
+
+    .controles-cantidad {
+        margin-left: 0;
     }
-    
-    .menu {
-        
-        left: 0;
-        right: 0;
-        padding: 15px 0;
-        transform: translateX(0%);
-        display: block;
-            background: linear-gradient( #000049, rgb(47, 13, 133)); 
+
+    #totales {
+        padding: 25px 20px;
+        text-align: center;
     }
-    
-    .menu ul {
+
+    .botones-cart {
         flex-direction: column;
         gap: 15px;
-        align-items: center;
     }
-    
-    .menu li {
-        width: 90%;
-        max-width: 300px;
-    }
-    
-    .menu li a {
-        padding: 15px;
-        font-size: 16px;
-    }
-    
-    
-    .footer {
-        flex-direction: column;
-        text-align: center;
-        gap: 25px;
-        padding: 30px 20px;
-    }
-    
-    nav {
-        padding: 0 15px;
-    }
-    
-    .logos ul {
-        justify-content: center;
+
+    .btn-vaciar, .btn-comprar {
+        width: 100%;
     }
 }
