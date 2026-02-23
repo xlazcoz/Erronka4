@@ -1,4 +1,3 @@
-/* css/Saskia.css - Estilo Minimalista para el Carrito */
 
 main {
     max-width: 900px;
@@ -19,11 +18,11 @@ h1 {
 #cart-container {
     display: flex;
     flex-direction: column;
-    gap: 0; /* Quitamos el gap porque usaremos bordes inferiores */
+    gap: 0; 
     margin-bottom: 40px;
 }
 
-/* Cada producto en el carrito */
+
 .tarjeta-producto {
     display: flex;
     align-items: center;
@@ -36,7 +35,6 @@ h1 {
     width: 80px;
     height: 80px;
     object-fit: contain;
-    filter: grayscale(15%);
 }
 
 .producto-info {
@@ -58,7 +56,7 @@ h1 {
     color: #777;
 }
 
-/* Controles de sumar y restar */
+
 .controles-cantidad {
     display: flex;
     align-items: center;
@@ -94,7 +92,6 @@ h1 {
     color: #111;
 }
 
-/* Sección de Totales */
 #totales {
     background: #fcfcfc;
     padding: 40px;
@@ -119,7 +116,7 @@ h1 {
     letter-spacing: 1px;
 }
 
-/* Botones finales */
+
 .botones-cart {
     display: flex;
     justify-content: flex-end;
@@ -159,9 +156,6 @@ h1 {
     border-color: #333;
 }
 
-/* =========================================
-   DISEÑO RESPONSIVE (MÓVILES)
-   ========================================= */
 @media (max-width: 768px) {
     .tarjeta-producto {
         flex-direction: column;

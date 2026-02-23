@@ -1,4 +1,3 @@
-// js/inicio.js
 
 let productosDestacados = [];
 

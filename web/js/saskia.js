@@ -16,7 +16,6 @@ function crearTarjetasProductosCarrito() {
             const nuevoproducto = document.createElement("div");
             nuevoproducto.classList.add("tarjeta-producto");
             
-            // Hemos ordenado el HTML para que encaje con el nuevo diseño limpio
             nuevoproducto.innerHTML = `
                 <img src="${producto.image}" alt="${producto.title}">
                 <div class="producto-info">
@@ -44,7 +43,6 @@ function crearTarjetasProductosCarrito() {
             });
         });
     } else {
-        // Mensaje elegante si el carrito está vacío
         contenedorTarjetas.innerHTML = "<p style='text-align:center; color:#777; padding: 40px 0;'>Zure saskia hutsik dago.</p>";
     }
 }
@@ -64,7 +62,6 @@ function actualizarTotales() {
     const totalesContainer = document.getElementById("totales");
     if (totalesContainer) {
         if (cantidad > 0) {
-            // Estructura renovada para los totales y botones finales
             totalesContainer.innerHTML = `
                 <div class="totales-info">
                     <div>Unitateak: ${cantidad}</div>
@@ -97,7 +94,7 @@ function actualizarTotales() {
                 };
             }
         } else {
-            totalesContainer.innerHTML = ""; // Ocultar totales si está vacío
+            totalesContainer.innerHTML = ""; 
         }
     }
 }
