@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="eu">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indiusurbil - Estadistikak</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/estadistikak.css" />
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html"><img src="img/logo.png" alt="Indiusurbil logoa" class="logo" /></a>
+            </div>
+            <details>
+                <summary></summary>
+                <ul class="menu">
+                    <li><a href="index.html">Orrialde nagusia</a></li>
+                    <li><a href="produktuak.html">Produktuak</a></li>
+                    <li><a href="estadistikak.html">Estadistikak</a></li>
+                    <li><a href="#">Login</a></li>
+                </ul>
+            </details>
+            <div class="carrito">
+                <a href="saskia.html"><img src="img/cesta.png" alt="cesta" /> <span id="cuenta-carrito">0</span></a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="dashboard-main">
+        <div class="dashboard-header">
+            <h1>Administrazio Panela</h1>
+            <p>Datuen analisia eta estatistikak</p>
+        </div>
+
+        <section class="dashboard-cards" id="resumen-tarjetas">
+            </section>
+
+        <section class="dashboard-grid">
+            <div class="tabla-contenedor">
+                <h2>⚠️ Stock Alerta (< 5 Unitate)</h2>
+                <table id="tabla-stock"></table>
+            </div>
+
+            <div class="tabla-contenedor">
+                <h2>⭐ Produktu Izarrak (> 500€)</h2>
+                <table id="tabla-estrellas"></table>
+            </div>
+
+            <div class="tabla-contenedor">
+                <h2>📈 Salmenta Gehienak</h2>
+                <table id="tabla-mas-vendidos"></table>
+            </div>
+
+            <div class="tabla-contenedor">
+                <h2>👑 Bezero Onenak</h2>
+                <table id="tabla-clientes"></table>
+            </div>
+
+            <div class="tabla-contenedor">
+                <h2>📅 Hileko Salmentak</h2>
+                <table id="tabla-mensuales"></table>
+            </div>
+
+            <div class="tabla-contenedor">
+                <h2>👻 Inoiz Saldu Ez Direnak</h2>
+                <table id="tabla-no-vendidos"></table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="logo"><a href="index.html"><img src="img/logo.png" alt="Indiusurbil logo" /></a></div>
+        <div class="oharlegalak">
+            <a href="#">Ohar legalak</a>
+            <a href="#">Pribatasun politikak</a>
+        </div>
+        <div class="oharlegalak">
+            <a href="#">Cookies politikak</a>
+            <a href="#">Erosketa baldintzak</a>
+        </div>
+        <div class="oharlegalak">
+            <a href="#">© 2026 Indiusurbil</a>
+            <a href="#">Klientearekiko arreta</a>
+        </div>
+        <div class="logos">
+            <ul>
+                <li><a href="https://Instagram.com" target="_blank"><img src="img/insta.png" alt="Instagram" /></a></li>
+                <li><a href="https://x.com" target="_blank"><img src="img/x.png" alt="x" /></a></li>
+                <li><a href="https://Facebook.com" target="_blank"><img src="img/facebook.png" alt="Facebook" /></a></li>
+                <li><a href="https://linkedin.com" target="_blank"><img src="img/linkedin.png" alt="linkedin" /></a></li>
+            </ul>
+        </div>
+    </footer>
+    
+    <script src="js/cartService.js"></script>
+    <script src="js/estadistikak.js"></script>    
+</body>
+
+</html>
