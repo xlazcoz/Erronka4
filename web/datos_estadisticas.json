@@ -1,0 +1,25 @@
+{
+  "resumen_general": {
+    "ganancias_totales": 5084.21
+  },
+  "productos": [
+    { "id": 1, "nombre": "Fjallraven - Foldsack No. 1 Backpack", "stock": 12, "ventas_cantidad": 15, "ventas_total_euros": 1649.25 },
+    { "id": 2, "nombre": "Mens Casual Premium Slim Fit T-Shirts ", "stock": 3, "ventas_cantidad": 120, "ventas_total_euros": 2676.00 },
+    { "id": 3, "nombre": "Mens Cotton Jacket", "stock": 45, "ventas_cantidad": 0, "ventas_total_euros": 0.00 },
+    { "id": 4, "nombre": "Mens Casual Slim Fit", "stock": 2, "ventas_cantidad": 4, "ventas_total_euros": 63.96 },
+    { "id": 5, "nombre": "John Hardy Women's Legends Naga Bracelet", "stock": 1, "ventas_cantidad": 1, "ventas_total_euros": 695.00 },
+    { "id": 6, "nombre": "Solid Gold Petite Micropave", "stock": 10, "ventas_cantidad": 0, "ventas_total_euros": 0.00 }
+  ],
+  "clientes": [
+    { "id": 101, "usuario": "uxue", "total_pedidos": 12 },
+    { "id": 102, "usuario": "jon", "total_pedidos": 3 },
+    { "id": 103, "usuario": "ane", "total_pedidos": 8 },
+    { "id": 104, "usuario": "mikel", "total_pedidos": 15 }
+  ],
+  "ventas_mensuales": [
+    { "año": 2024, "mes": "Marzo", "total": 1200.50 },
+    { "año": 2024, "mes": "Abril", "total": 2100.00 },
+    { "año": 2024, "mes": "Mayo", "total": 1500.00 },
+    { "año": 2025, "mes": "Enero", "total": 283.71 }
+  ]
+}
