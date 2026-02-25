@@ -10,13 +10,13 @@ public class Main {
 
         do {
             System.out.println("\n===== KUDEAKETA MENUA =====");
-            System.out.println("1. Produktua txertatu (Insertar)");
-            System.out.println("2. Produktuak zerrendatu (Listar)");
-            System.out.println("3. Produktua eguneratu (Actualizar stock y precio)");
-            System.out.println("4. Produktua ezabatu (Borrar)");
-            System.out.println("5. Produktua bilatu (Buscar)");
-            System.out.println("6. Datuak CSV-tik kargatu");
-            System.out.println("7. Esportatu JSON fitxategiak (Webgunearentzat)");
+            System.out.println("1. Produktua txertatu ");
+            System.out.println("2. Produktuak zerrendatu ");
+            System.out.println("3. Produktua eguneratu ");
+            System.out.println("4. Produktua ezabatu ");
+            System.out.println("5. Produktua bilatu ");
+            System.out.println("6. Datuak CSV-tik kargatu ");
+            System.out.println("7. Esportatu JSON fitxategiak ");
             System.out.println("8. Irten");
             System.out.print("Aukeratu bat: ");
             
