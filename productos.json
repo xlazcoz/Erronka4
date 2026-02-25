@@ -1,0 +1,66 @@
+[
+  {
+    "id": 1,
+    "izena": "Anorak",
+    "deskribapena": "Anorak berokia",
+    "prezioa": 120.0,
+    "stocka": 50,
+    "data": "2024-12-20"
+  },
+  {
+    "id": 2,
+    "izena": "Plumifero",
+    "deskribapena": "Plumifero gorria",
+    "prezioa": 150.0,
+    "stocka": 30,
+    "data": "2024-12-20"
+  },
+  {
+    "id": 3,
+    "izena": "Termica",
+    "deskribapena": "Kamiseta termikoa",
+    "prezioa": 55.0,
+    "stocka": 100,
+    "data": "2024-12-20"
+  },
+  {
+    "id": 4,
+    "izena": "Zapatillas CSV",
+    "deskribapena": "Zapatilla korrika",
+    "prezioa": 75.0,
+    "stocka": 40,
+    "data": "2024-12-20"
+  },
+  {
+    "id": 5,
+    "izena": "Chaqueta de Lana",
+    "deskribapena": "Artilezko txaketa",
+    "prezioa": 130.0,
+    "stocka": 20,
+    "data": "2024-12-20"
+  },
+  {
+    "id": 6,
+    "izena": "Botas",
+    "deskribapena": "Mendi botak",
+    "prezioa": 110.0,
+    "stocka": 25,
+    "data": "2024-12-20"
+  },
+  {
+    "id": 7,
+    "izena": "Mallas",
+    "deskribapena": "Malla elastikoak",
+    "prezioa": 45.0,
+    "stocka": 60,
+    "data": "2024-12-20"
+  },
+  {
+    "id": 8,
+    "izena": "Chandal",
+    "deskribapena": "Txandal osoa",
+    "prezioa": 60.0,
+    "stocka": 45,
+    "data": "2024-12-20"
+  }
+]
