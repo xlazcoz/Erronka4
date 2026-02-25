@@ -16,11 +16,13 @@ function crearTarjetasProductosCarrito() {
             const nuevoproducto = document.createElement("div");
             nuevoproducto.classList.add("tarjeta-producto");
             
+            const imagenAMostrar = producto.irudia ? producto.irudia : "img/logo.png";
+
             nuevoproducto.innerHTML = `
-                <img src="${producto.image}" alt="${producto.title}">
+                <img src="${imagenAMostrar}" alt="${producto.izena}" width="50">
                 <div class="producto-info">
-                    <span class="producto-titulo">${producto.title}</span>
-                    <span class="producto-precio">${producto.price.toFixed(2)} €</span>
+                    <span class="producto-titulo">${producto.izena}</span>
+                    <span class="producto-precio">${producto.prezioa.toFixed(2)} €</span>
                 </div>
                 <div class="controles-cantidad">
                     <button class="btn-cantidad btn-menos">-</button>
@@ -37,13 +39,13 @@ function crearTarjetasProductosCarrito() {
             });
 
             nuevoproducto.querySelector(".btn-mas").addEventListener("click", () => {
-                agregarAlCarrito(producto); 
+                agregarAlCarrito(producto);
                 crearTarjetasProductosCarrito();
                 actualizarTotales();
             });
         });
     } else {
-        contenedorTarjetas.innerHTML = "<p style='text-align:center; color:#777; padding: 40px 0;'>Zure saskia hutsik dago.</p>";
+        contenedorTarjetas.innerHTML = "<p>Saskia hutsik dago</p>";
     }
 }
 
@@ -55,7 +57,7 @@ function actualizarTotales() {
     if (productos && productos.length > 0) {
         productos.forEach((producto) => {
             cantidad += producto.cantidad;
-            precio += producto.price * producto.cantidad;
+            precio += producto.prezioa * producto.cantidad;
         });
     }
 
