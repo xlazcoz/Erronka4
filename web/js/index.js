@@ -1,4 +1,4 @@
-const url = "https://fakestoreapi.com/products";
+const url = "../produktuak.json";
 let todosProductos = [];
 
 async function cargarProductos() {
@@ -10,11 +10,13 @@ async function cargarProductos() {
         let productosHTML = '';
         
         productos.forEach(producto => {
+            let imagen = producto.irudia || "img/logo.png";
+
             productosHTML += `
-                <div>
-                    <img src="${producto.image}" width="100"><br>
-                    <span>${producto.title}</span><br>
-                    <span>${producto.price}€</span><br>
+                <div class="tarjeta-producto">
+                    <img src="${imagen}" width="100" alt="${producto.izena}"><br>
+                    <span>${producto.izena}</span><br>
+                    <span>${producto.prezioa}€</span><br>
                     <button onclick="procesarCompra(${producto.id})">Saskira gehitu</button>
                 </div>
             `;
@@ -35,7 +37,7 @@ function procesarCompra(idProducto) {
     
     if (productoEncontrado) {
         agregarAlCarrito(productoEncontrado);
-        mostrarNotificacion(`saskira gehitu da!`);
+        mostrarNotificacion(`${productoEncontrado.izena} saskira gehitu da!`);
     } else {
         console.error("Producto no encontrado");
     }
@@ -53,11 +55,10 @@ function mostrarNotificacion(mensaje) {
 
     setTimeout(() => {
         notificacion.classList.remove('mostrar'); 
-        
         setTimeout(() => {
             notificacion.remove();
         }, 500);
-    }, 2000);
+    }, 3000);
 }
 
 if(document.getElementById('products-container')) {

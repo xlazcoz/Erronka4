@@ -6,17 +6,23 @@ public class Produktua {
     private int stocka;
     private String sorkuntzaData;
     private int kategoriaId;
+    private String irudia;
 
+   
     public Produktua() {}
 
-    public Produktua(String izena, String deskribapena, double prezioa, int stocka, String sorkuntzaData, int kategoriaId) {
+    
+    public Produktua(String izena, String deskribapena, double prezioa, int stocka, String sorkuntzaData, int kategoriaId, String irudia) {
         this.izena = izena;
         this.deskribapena = deskribapena;
         this.prezioa = prezioa;
         this.stocka = stocka;
         this.sorkuntzaData = sorkuntzaData;
         this.kategoriaId = kategoriaId;
+        this.irudia = irudia;
     }
+
+    // --- GETTERS Y SETTERS ---
 
     public int getId() { return id; }
     public void setId(int id) { this.id = id; }
@@ -39,8 +45,11 @@ public class Produktua {
     public int getKategoriaId() { return kategoriaId; }
     public void setKategoriaId(int kategoriaId) { this.kategoriaId = kategoriaId; }
 
+    public String getIrudia() { return irudia; }
+    public void setIrudia(String irudia) { this.irudia = irudia; }
+
     @Override
     public String toString() {
-        return "ID: " + id + " | " + izena + " | Data: " + sorkuntzaData + " | Stock: " + stocka + " | Prezioa: " + prezioa + " EUR";
+        return "ID: " + id + " | " + izena + " | Data: " + sorkuntzaData + " | Stock: " + stocka + " | Prezioa: " + prezioa + " EUR | Irudia: " + irudia;
     }
 }

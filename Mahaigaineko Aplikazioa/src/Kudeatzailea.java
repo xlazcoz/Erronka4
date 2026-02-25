@@ -8,7 +8,7 @@ public class Kudeatzailea {
     public void txertatuProduktua(Produktua p) {
         try {
             Connection con = Konexioa.getKonexioa();
-            String sql = "INSERT INTO produktua (Deskribapena_produktua, Izena_produktua, prezioa, stocka, sorkuntza_data_produktua, Id_kategoria) VALUES (?, ?, ?, ?, ?, ?)";
+            String sql = "INSERT INTO produktua (Deskribapena_produktua, Izena_produktua, prezioa, stocka, sorkuntza_data_produktua, Id_kategoria, irudia) VALUES (?, ?, ?, ?, ?, ?, ?)";
             PreparedStatement pstmt = con.prepareStatement(sql);
             
             pstmt.setString(1, p.getDeskribapena());
@@ -17,6 +17,7 @@ public class Kudeatzailea {
             pstmt.setInt(4, p.getStocka());
             pstmt.setString(5, p.getSorkuntzaData());
             pstmt.setInt(6, p.getKategoriaId());
+            pstmt.setString(7, p.getIrudia()); 
             
             pstmt.executeUpdate();
             System.out.println("Produktua txertatu da.");
@@ -48,6 +49,7 @@ public class Kudeatzailea {
                 p.setStocka(rs.getInt("stocka"));
                 p.setSorkuntzaData(rs.getString("sorkuntza_data_produktua"));
                 p.setKategoriaId(rs.getInt("Id_kategoria"));
+                p.setIrudia(rs.getString("irudia")); 
                 zerrenda.add(p);
             }
             
@@ -152,15 +154,18 @@ public class Kudeatzailea {
             
             while ((lerroa = br.readLine()) != null) {
                 String[] datuak = lerroa.split(",");
-                if (datuak.length == 6) {
+                
+                if (datuak.length == 7) {
                     String izena = datuak[0];
                     String desk = datuak[1];
                     double prezioa = Double.parseDouble(datuak[2]);
                     int stock = Integer.parseInt(datuak[3]);
                     String data = datuak[4];
                     int kategoria = Integer.parseInt(datuak[5]);
+                    String irudia = datuak[6]; 
                     
-                    Produktua p = new Produktua(izena, desk, prezioa, stock, data, kategoria);
+                    
+                    Produktua p = new Produktua(izena, desk, prezioa, stock, data, kategoria, irudia);
                     txertatuProduktua(p); 
                 }
             }
@@ -175,7 +180,8 @@ public class Kudeatzailea {
         }
     }
 
-    // 7. JSON ESPORTATU (Escribir archivo)
+
+    // 7. JSON ESPORTATU PRODUKTUAK
     public void esportatuJSON(String ibilbidea) {
         ArrayList<Produktua> produktuak = lortuProduktuak();
         
@@ -186,14 +192,15 @@ public class Kudeatzailea {
             for (int i = 0; i < produktuak.size(); i++) {
                 Produktua p = produktuak.get(i);
                 
-                String jsonObjeto = "  {\n" +
-                                    "    \"id\": " + p.getId() + ",\n" +
-                                    "    \"izena\": \"" + p.getIzena() + "\",\n" +
-                                    "    \"deskribapena\": \"" + p.getDeskribapena() + "\",\n" +
-                                    "    \"prezioa\": " + p.getPrezioa() + ",\n" +
-                                    "    \"stocka\": " + p.getStocka() + ",\n" +
-                                    "    \"data\": \"" + p.getSorkuntzaData() + "\"\n" +
-                                    "  }";
+                String jsonObjeto = "{\n" +
+                "\"id\": " + p.getId() + ",\n" +
+                "\"izena\": \"" + p.getIzena() + "\",\n" +
+                "\"deskribapena\": \"" + p.getDeskribapena() + "\",\n" +
+                "\"prezioa\": " + p.getPrezioa() + ",\n" +
+                "\"stocka\": " + p.getStocka() + ",\n" +
+                "\"data\": \"" + p.getSorkuntzaData() + "\",\n" +
+                "\"irudia\": \"" + p.getIrudia() + "\"\n" +
+                "}";
                 
                 fw.write(jsonObjeto);
                 
@@ -204,12 +211,80 @@ public class Kudeatzailea {
                 }
             }
             fw.write("]");
-            System.out.println("JSON sortu da.");
+            System.out.println("Produktuen JSON sortu da.");
             
             fw.close();
             
         } catch (IOException e) {
             System.out.println("Errorea JSON idaztean: " + e.getMessage());
+        }
+    }
+
+    // 8. JSON ESPORTATU BEZEROAK ETA ESKAERAK (Este no cambia)
+    public void esportatuBezeroakJSON(String ibilbidea) {
+        try {
+            Connection con = Konexioa.getKonexioa();
+            FileWriter fw = new FileWriter(ibilbidea);
+            fw.write("[\n");
+
+            String sql = "SELECT * FROM erabiltzailea";
+            PreparedStatement pstmt = con.prepareStatement(sql);
+            ResultSet rs = pstmt.executeQuery();
+
+            ArrayList<String> bezeroenZerrenda = new ArrayList<>();
+
+            while (rs.next()) {
+                int id = rs.getInt("Id_erabiltzailea");
+                String izena = rs.getString("izena_erabiltzailea");
+                String abizena = rs.getString("abizena_erabiltzailea");
+                String emaila = rs.getString("emaila");
+                String pasaitza = rs.getString("pasaitza");
+                String data = rs.getString("sorkuntza_data_erabiltzailea");
+
+                String sqlEskaera = "SELECT * FROM eskaera WHERE Id_erabiltzailea = ?";
+                PreparedStatement pstmtEsk = con.prepareStatement(sqlEskaera);
+                pstmtEsk.setInt(1, id);
+                ResultSet rsEsk = pstmtEsk.executeQuery();
+
+                ArrayList<String> eskaerenZerrenda = new ArrayList<>();
+                while (rsEsk.next()) {
+                    String eskaeraJson = "{\n" + 
+                    "\"id_eskaera\": " + rsEsk.getInt("Id_Eskaera") + ",\n" +
+                    "\"guztira\": " + rsEsk.getDouble("guztira") + ",\n" +
+                    "\"data\": \"" + rsEsk.getString("data") + "\",\n" +
+                    "\"egoera\": \"" + rsEsk.getString("egoera") + "\"\n" +
+                    "}";
+                    eskaerenZerrenda.add(eskaeraJson);
+                }
+                rsEsk.close();
+                pstmtEsk.close();
+
+                String eskaerakElkartuta = String.join(",\n", eskaerenZerrenda);
+
+                String bezeroJson = "{\n" +
+                "\"id\": " + id + ",\n" +
+                "\"izena\": \"" + izena + "\",\n" +
+                "\"abizena\": \"" + abizena + "\",\n" +
+                "\"emaila\": \"" + emaila + "\",\n" +
+                "\"pasaitza\": \"" + pasaitza + "\",\n" +
+                "\"data\": \"" + data + "\",\n" +
+                "\"eskaerak\": [\n" + eskaerakElkartuta + "\n]\n" +
+                "}";
+                
+                bezeroenZerrenda.add(bezeroJson);
+            }
+
+            fw.write(String.join(",\n", bezeroenZerrenda));
+            fw.write("\n]");
+            System.out.println("Bezeroen JSON sortu da.");
+            
+            fw.close();
+            rs.close();
+            pstmt.close();
+            con.close();
+            
+        } catch (SQLException | IOException e) {
+            System.out.println("Errorea bezeroen JSON idaztean: " + e.getMessage());
         }
     }
 }

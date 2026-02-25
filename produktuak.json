@@ -1,0 +1,137 @@
+[
+{
+"id": 1,
+"izena": "Anorak",
+"deskribapena": "Anorak berokia",
+"prezioa": 120.0,
+"stocka": 50,
+"data": "2024-12-20",
+"irudia": "https://alphaindustries.cstatic.io/media/7a/6b/20/1732037967/116110_01_001_123653.jpg?ts=1733917884"
+},
+{
+"id": 2,
+"izena": "Plumifero",
+"deskribapena": "Plumifero gorria",
+"prezioa": 150.0,
+"stocka": 30,
+"data": "2024-12-20",
+"irudia": "https://www.ouka.es/wp-content/uploads/2026/01/plumifero-largo-mujer-negro-abrigo-acolchado-capucha-cremallera-1.png"
+},
+{
+"id": 3,
+"izena": "Termica",
+"deskribapena": "Kamiseta termikoa",
+"prezioa": 55.0,
+"stocka": 100,
+"data": "2024-12-20",
+"irudia": "https://www.onzesport.com/wp-content/uploads/SKIN05-1-500x666.png"
+},
+{
+"id": 4,
+"izena": "Zapatillas",
+"deskribapena": "Zapatilla korrika",
+"prezioa": 75.0,
+"stocka": 40,
+"data": "2024-12-20",
+"irudia": "https://handballproshop.com/cdn/shop/files/DJ4476-900-1-1.png?v=1725623753&width=600"
+},
+{
+"id": 5,
+"izena": "Chaqueta de Lana",
+"deskribapena": "Artilezko txaketa",
+"prezioa": 130.0,
+"stocka": 20,
+"data": "2024-12-20",
+"irudia": "https://png.pngtree.com/png-clipart/20250715/original/pngtree-a-beige-knitted-cardigan-with-classic-cable-knit-pattern-png-image_21220999.png"
+},
+{
+"id": 6,
+"izena": "Botas",
+"deskribapena": "Mendi botak",
+"prezioa": 110.0,
+"stocka": 25,
+"data": "2024-12-20",
+"irudia": "https://img.freepik.com/psd-gratis/accesorio-vaquero-aislado_23-2151388010.jpg?semt=ais_user_personalization&w=740&q=80"
+},
+{
+"id": 7,
+"izena": "Mallas",
+"deskribapena": "Malla elastikoak",
+"prezioa": 45.0,
+"stocka": 60,
+"data": "2024-12-20",
+"irudia": "https://png.pngtree.com/png-vector/20250321/ourmid/pngtree-blue-leggings-for-women-png-image_15798642.png"
+},
+{
+"id": 8,
+"izena": "Chandal",
+"deskribapena": "Txandal osoa",
+"prezioa": 60.0,
+"stocka": 45,
+"data": "2024-12-20",
+"irudia": "https://cdn.media.amplience.net/i/frasersdev/31823503_o?fmt=auto&upscale=false&w=767&h=767&sm=scaleFit&$h-ttl$"
+},
+{
+"id": 9,
+"izena": "Sandalias",
+"deskribapena": "Udako sandaliak",
+"prezioa": 45.0,
+"stocka": 30,
+"data": "2024-12-21",
+"irudia": "https://img.freepik.com/foto-gratis/chancletas-amarillas-aisladas-sobre-fondo-blanco_1101-1996.jpg?semt=ais_hybrid&w=740&q=80"
+},
+{
+"id": 10,
+"izena": "Sudadera",
+"deskribapena": "Txanoarekin sudadera",
+"prezioa": 35.0,
+"stocka": 80,
+"data": "2024-12-21",
+"irudia": "https://png.pngtree.com/png-vector/20250101/ourmid/pngtree-casual-black-hoodie-clothing-transparent-background-png-image_14931026.png"
+},
+{
+"id": 11,
+"izena": "bufanda",
+"deskribapena": "Bufanda de lana",
+"prezioa": 40.0,
+"stocka": 45,
+"data": "2024-12-22",
+"irudia": "https://img.freepik.com/foto-gratis/bufanda-roja-invierno-aislada-sobre-fondo-blanco_1101-2407.jpg"
+},
+{
+"id": 12,
+"izena": "Cortavientos",
+"deskribapena": "Haize-babesa arina",
+"prezioa": 65.0,
+"stocka": 20,
+"data": "2024-12-22",
+"irudia": "https://w7.pngwing.com/pngs/474/101/png-transparent-hoodie-jacket-windbreaker-outerwear-jacket-blue-human-hoodie.png"
+},
+{
+"id": 13,
+"izena": "Short Deportivo",
+"deskribapena": "Kirol praka motzak",
+"prezioa": 25.0,
+"stocka": 100,
+"data": "2024-12-23",
+"irudia": "https://w1.pngwing.com/pngs/332/565/png-transparent-swim-tshirt-hoodie-adidas-shorts-clothing-nike-calzado-deportivo-sportswear-pants-thumbnail.png"
+},
+{
+"id": 14,
+"izena": "Zapatos",
+"deskribapena": "Janzteko zapatak",
+"prezioa": 85.0,
+"stocka": 15,
+"data": "2024-12-24",
+"irudia": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRrYvLo0KWv79scvzXq3Egyq7cuzOFhFIPDBA&s"
+},
+{
+"id": 15,
+"izena": "Chubasquero",
+"deskribapena": "Txaketa iragazgaitza",
+"prezioa": 55.0,
+"stocka": 60,
+"data": "2024-12-25",
+"irudia": "https://png.pngtree.com/png-clipart/20241019/original/pngtree-man-in-yellow-raincoat-png-image_16409693.png"
+}
+]

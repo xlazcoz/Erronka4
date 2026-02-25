@@ -1,4 +1,3 @@
-
 let productosDestacados = [];
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -7,8 +6,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
 async function cargarProductosInicio() {
     try {
-        const respuesta = await fetch('https://fakestoreapi.com/products?limit=3');
-        productosDestacados = await respuesta.json();
+        const respuesta = await fetch('../produktuak.json');
+        const todosLosProductos = await respuesta.json();
+        
+
+        productosDestacados = todosLosProductos.slice(0, 3);
         
         const contenedor = document.getElementById('contenedor-productos');
         if (!contenedor) return;
@@ -16,13 +18,14 @@ async function cargarProductosInicio() {
         let htmlProductos = '';
         
         productosDestacados.forEach(prod => {
-            let tituloCorto = prod.title.length > 30 ? prod.title.substring(0, 30) + '...' : prod.title;
+            let tituloCorto = prod.izena.length > 30 ? prod.izena.substring(0, 30) + '...' : prod.izena;
+            let imagen = prod.irudia || "img/logo.png";
             
             htmlProductos += `
                 <div class="tarjeta-producto">
-                    <img class="imagen-producto" src="${prod.image}" alt="${tituloCorto}">
+                    <img class="imagen-producto" src="${imagen}" alt="${tituloCorto}">
                     <h3 class="nombre-producto">${tituloCorto}</h3>
-                    <p class="precio-producto">${prod.price.toFixed(2)} €</p>
+                    <p class="precio-producto">${prod.prezioa.toFixed(2)} €</p>
                     <button class="boton-comprar" onclick="agregarAlCarritoDesdeInicio(${prod.id})">Saskira Gehitu</button>
                 </div>
             `;
@@ -41,7 +44,7 @@ function agregarAlCarritoDesdeInicio(idProducto) {
     if (productoEncontrado) {
         if (typeof agregarAlCarrito === 'function') {
             agregarAlCarrito(productoEncontrado); 
-            mostrarNotificacion('Saskira gehituta!'); 
+            mostrarNotificacion(`${productoEncontrado.izena} saskira gehituta!`); 
         } else {
             console.error("No se encuentra la función agregarAlCarrito");
         }
@@ -54,17 +57,14 @@ function mostrarNotificacion(mensaje) {
     notificacion.classList.add('notificacion'); 
     document.body.appendChild(notificacion);
 
-    
     setTimeout(() => {
         notificacion.classList.add('mostrar');
     }, 10);
 
-
     setTimeout(() => {
-        notificacion.classList.remove('mostrar'); 
-        
+        notificacion.classList.remove('mostrar');
         setTimeout(() => {
             notificacion.remove();
-        }, 500); 
-    }, 2500);
+        }, 500);
+    }, 3000);
 }

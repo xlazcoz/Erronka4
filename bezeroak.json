@@ -1,0 +1,102 @@
+[
+{
+"id": 1,
+"izena": "Aitor",
+"abizena": "Bilbao",
+"emaila": "aitor.bilbao@email.eus",
+"pasaitza": "235346",
+"data": "2024-12-01",
+"eskaerak": [
+{
+"id_eskaera": 1,
+"guztira": 360.0,
+"data": "2025-01-10",
+"egoera": "recibido"
+},
+{
+"id_eskaera": 5,
+"guztira": 150.0,
+"data": "2025-01-01",
+"egoera": "recibido"
+},
+{
+"id_eskaera": 8,
+"guztira": 330.0,
+"data": "2025-01-08",
+"egoera": "recibido"
+},
+{
+"id_eskaera": 10,
+"guztira": 180.0,
+"data": "2025-01-20",
+"egoera": "en reparto"
+}
+]
+},
+{
+"id": 2,
+"izena": "Miren",
+"abizena": "Donostia",
+"emaila": "miren.donostia@email.eus",
+"pasaitza": "3394",
+"data": "2024-12-05",
+"eskaerak": [
+{
+"id_eskaera": 2,
+"guztira": 120.0,
+"data": "2025-01-26",
+"egoera": "enviado"
+},
+{
+"id_eskaera": 3,
+"guztira": 150.0,
+"data": "2025-01-23",
+"egoera": "recibido"
+},
+{
+"id_eskaera": 6,
+"guztira": 260.0,
+"data": "2025-01-10",
+"egoera": "enviado"
+}
+]
+},
+{
+"id": 3,
+"izena": "Jon",
+"abizena": "Pamplona",
+"emaila": "jon.pamplona@email.eus",
+"pasaitza": "208575",
+"data": "2024-12-10",
+"eskaerak": [
+{
+"id_eskaera": 4,
+"guztira": 55.0,
+"data": "2025-01-27",
+"egoera": "en reparto"
+},
+{
+"id_eskaera": 9,
+"guztira": 150.0,
+"data": "2025-01-22",
+"egoera": "enviado"
+}
+]
+},
+{
+"id": 4,
+"izena": "Ane",
+"abizena": "Vitoria",
+"emaila": "ane.vitoria@email.eus",
+"pasaitza": "12345",
+"data": "2024-12-15",
+"eskaerak": [
+{
+"id_eskaera": 7,
+"guztira": 360.0,
+"data": "2025-01-08",
+"egoera": "recibido"
+}
+]
+}
+]
