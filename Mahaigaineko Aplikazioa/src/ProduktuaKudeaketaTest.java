@@ -6,7 +6,7 @@ public class ProduktuaKudeaketaTest {
     
 
 
-    // CP1: Produktua ondo sortu (Elektronika) - B1, B2, B3, B4
+    // CP1: Produktua ondo sortu - B1, B2, B3, B4
     @Test
     void testCP1_CrearProductoElectronicaValido() {
         Produktua p = new Produktua("Ordenagailua", "PC", 850.0, 10, "2024-05-20", 1, "pc.png");
@@ -17,7 +17,7 @@ public class ProduktuaKudeaketaTest {
         );
     }
 
-    // CP2: Produktua ondo sortu (Arropa) - B1, B2, B3, B5
+    // CP2: Produktua ondo sortu - B1, B2, B3, B5
     @Test
     void testCP2_CrearProductoArropaValido() {
         Produktua p = new Produktua("Kamiseta", "Textil", 20.0, 50, "2024-05-20", 2, "shirt.png");
@@ -29,7 +29,6 @@ public class ProduktuaKudeaketaTest {
     @Test
     void testCP3_NombreVacioError() {
         Produktua p = new Produktua("", "PC", 850.0, 10, "2024-05-20", 1, "pc.png");
-        // Según tu tabla, esto debería ser un error EB1
         assertTrue(p.getIzena().isEmpty(), "EB1: El nombre está vacío");
     }
 
@@ -37,14 +36,13 @@ public class ProduktuaKudeaketaTest {
     @Test
     void testCP4_PrecioCeroError() {
         Produktua p = new Produktua("Ordenagailua", "PC", 0.0, 10, "2024-05-20", 1, "pc.png");
-        // Según tu tabla, <= 0 es EB2
         assertTrue(p.getPrezioa() <= 0, "EB2: El precio es cero o negativo");
     }
 
     // CP5: Ez zenbakizkoa (EB3)
     @Test
     void testCP5_PrecioNoNumericoError() {
-        // En Java, el tipo es double, por lo que el error ocurre al intentar convertirlo
+        
         String valorInput = "hogei";
         assertThrows(NumberFormatException.class, () -> {
             Double.parseDouble(valorInput);
@@ -55,7 +53,6 @@ public class ProduktuaKudeaketaTest {
     @Test
     void testCP6_StockNegativoError() {
         Produktua p = new Produktua("Sagua", "Mouse", 15.0, -5, "2024-05-20", 1, "mouse.png");
-        // Según tu tabla, < 0 es EB4
         assertTrue(p.getStocka() < 0, "EB4: El stock es negativo");
     }
 
@@ -63,7 +60,6 @@ public class ProduktuaKudeaketaTest {
     @Test
     void testCP7_KategoriaInexistenteError() {
         String kategoriaInput = "Liburutegia";
-        // Simulamos la lógica de validación de categorías existentes
         boolean existe = kategoriaInput.equals("Elektronika") || kategoriaInput.equals("Arropa");
         assertFalse(existe, "EB6: La categoría no debería existir en el sistema");
     }
