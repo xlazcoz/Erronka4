@@ -133,5 +133,23 @@
 "stocka": 2,
 "data": "2024-12-25",
 "irudia": "https://png.pngtree.com/png-clipart/20241019/original/pngtree-man-in-yellow-raincoat-png-image_16409693.png"
+},
+{
+"id": 16,
+"izena": "camiseta",
+"deskribapena": "camiseta azul",
+"prezioa": 30.0,
+"stocka": 4,
+"data": "2026-02-27",
+"irudia": "ghdfhdfh"
+},
+{
+"id": 17,
+"izena": "galtzak",
+"deskribapena": "galtza beltzak",
+"prezioa": 60.0,
+"stocka": 7,
+"data": "2026-02-27",
+"irudia": "e56457"
 }
 ]
